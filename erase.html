@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solicitud de Eliminación de Cuenta — Kiwik Maben</title>
+  <meta name="description" content="Formulario para solicitar la eliminación de cuenta y datos asociados de Kiwik Maben." />
+  <style>
+    :root {
+      --bg: #0f172a; /* slate-900 */
+      --panel: #111827; /* gray-900 */
+      --muted: #94a3b8; /* slate-400 */
+      --text: #e5e7eb; /* gray-200 */
+      --brand: #22d3ee; /* cyan-400 */
+      --brand-dark: #0891b2; /* cyan-700 */
+      --danger: #ef4444; /* red-500 */
+      --success: #10b981; /* emerald-500 */
+      --border: #1f2937; /* gray-800 */
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1000px 600px at 10% -10%, #0b1220 0, #0f172a 60%, #0b1220 100%);
+      color: var(--text);
+    }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 32px 16px 64px; }
+    header { display:flex; align-items:center; gap:16px; margin: 24px 0 24px; }
+    .logo {
+      width: 48px; height: 48px; border-radius: 16px; display:grid; place-items:center;
+      background: linear-gradient(135deg, var(--brand), #60a5fa);
+      color:#0b1220; font-weight: 900; font-size: 20px;
+      box-shadow: 0 10px 30px rgba(34, 211, 238, .25);
+    }
+    h1 { font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem); margin:0; }
+    p.lead { color: var(--muted); margin: 6px 0 0; }
+
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid var(--border); border-radius: 18px; padding: 22px; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+    form { display:grid; gap:16px; }
+    .grid { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 720px){ .grid { grid-template-columns: 1fr; } }
+
+    label { display:block; font-weight: 600; margin-bottom: 6px; }
+    .req { color: var(--brand); margin-left: 6px; font-weight:700; }
+    input, textarea, select {
+      width: 100%; padding: 12px 14px; border-radius: 12px; border:1px solid var(--border);
+      background: #0b1220; color: var(--text); outline: none;
+    }
+    input::placeholder, textarea::placeholder { color: #64748b; }
+    textarea { min-height: 120px; resize: vertical; }
+
+    .help { color: var(--muted); font-size: 0.92rem; margin-top: 6px; }
+    .checks { display:grid; gap: 10px; }
+
+    .actions { display:flex; gap: 12px; flex-wrap: wrap; align-items:center; }
+    button {
+      appearance:none; border:0; border-radius: 12px; padding: 12px 16px; font-weight:700; cursor:pointer;
+      background: linear-gradient(135deg, var(--brand), #60a5fa); color:#0b1220;
+      box-shadow: 0 8px 24px rgba(34, 211, 238, .28);
+    }
+    button.secondary { background: transparent; color: var(--text); border:1px solid var(--border); box-shadow:none; }
+
+    .note { border-left: 3px solid var(--brand); padding: 10px 12px; background: rgba(34,211,238,.06); border-radius: 8px; }
+    .muted { color: var(--muted); }
+
+    .success { display:none; margin-top: 14px; color: var(--success); font-weight:700; }
+    .error { display:none; margin-top: 14px; color: var(--danger); font-weight:700; }
+
+    footer { margin-top: 36px; color: var(--muted); font-size:.92rem; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .small { font-size: .88rem; }
+    .divider { height:1px; background: var(--border); margin: 18px 0; border-radius: 999px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo" aria-hidden="true">K</div>
+      <div>
+        <h1>Solicitud de eliminación de cuenta</h1>
+        <p class="lead">Usa este formulario para pedir la eliminación permanente de tu cuenta y de los datos asociados en <strong>Kiwik Maben</strong>.</p>
+      </div>
+    </header>
+
+    <section class="card" aria-labelledby="form-title">
+      <form id="erasure-form" novalidate>
+        <h2 id="form-title" style="margin:0 0 4px;">Datos del titular</h2>
+        <p class="small muted" style="margin:0 0 16px;">Los campos marcados con <span class="req">*</span> son obligatorios.</p>
+
+        <div class="grid">
+          <div>
+            <label for="fullName">Nombre completo <span class="req">*</span></label>
+            <input id="fullName" name="fullName" type="text" placeholder="Nombre(s) y apellidos" required />
+          </div>
+          <div>
+            <label for="accountEmail">Correo de la cuenta <span class="req">*</span></label>
+            <input id="accountEmail" name="accountEmail" type="email" inputmode="email" autocomplete="email" placeholder="tucuenta@correo.com" required />
+          </div>
+        </div>
+
+        <div class="grid">
+          <div>
+            <label for="phone">Teléfono (opcional)</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="10 dígitos" />
+            <p class="help">Lo usaremos solo si necesitamos verificar tu identidad o confirmar la solicitud.</p>
+          </div>
+          <div>
+            <label for="userId">ID de usuario (opcional)</label>
+            <input id="userId" name="userId" type="text" placeholder="Si lo conoces" />
+          </div>
+        </div>
+
+        <div>
+          <label for="reason">Motivo (opcional)</label>
+          <textarea id="reason" name="reason" placeholder="Cuéntanos por qué deseas eliminar tu cuenta (opcional)"></textarea>
+        </div>
+
+        <div class="checks">
+          <label class="small">
+            <input type="checkbox" id="confirmErasure" required />
+            Confirmo que deseo eliminar <strong>definitivamente</strong> mi cuenta y entiendo que esta acción es irreversible. <span class="req">*</span>
+          </label>
+          <label class="small">
+            <input type="checkbox" id="confirmOwner" required />
+            Declaro bajo protesta de decir verdad que soy el titular de la cuenta o estoy autorizado para realizar esta solicitud. <span class="req">*</span>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="submitBtn" type="submit">Enviar solicitud por correo</button>
+          <button id="downloadBtn" type="button" class="secondary">Descargar solicitud en .txt</button>
+        </div>
+        
+        <div id="successMsg" class="success" role="status">Solicitud preparada. Revisa tu aplicación de correo para enviarla.</div>
+        <div id="errorMsg" class="error" role="alert">Por favor, completa los campos obligatorios y marca las confirmaciones.</div>
+
+        <div class="divider"></div>
+        <p class="note small">Esta página está pensada para usarse en un sitio estático (por ejemplo, GitHub Pages). El botón "Enviar" abrirá tu aplicación de correo con un mensaje prellenado dirigido a nuestro equipo de privacidad.</p>
+      </form>
+    </section>
+
+    <footer>
+      <p class="small">¿Necesitas ayuda? Escríbenos a <a href="mailto:privacy@kiwikmaben.com">privacy@kiwikmaben.com</a>.<br> 
+      Al enviar esta solicitud, Kiwik Maben procesará la eliminación conforme a la normativa aplicable (por ejemplo, LFPDPPP en México) y a nuestro Aviso de Privacidad.</p>
+    </footer>
+  </div>
+
+  <script>
+    (function(){
+      const form = document.getElementById('erasure-form');
+      const success = document.getElementById('successMsg');
+      const error = document.getElementById('errorMsg');
+      const downloadBtn = document.getElementById('downloadBtn');
+
+      // ⚠️ Cambia este correo por el oficial de tu empresa antes de publicar
+      const PRIVACY_EMAIL = 'privacy@kiwikmaben.com';
+      const COMPANY_NAME = 'Kiwik Maben';
+
+      function encode(v){ return encodeURIComponent(v).replace(/%20/g, '+'); }
+
+      function buildBody(data){
+        const today = new Date().toISOString().split('T')[0];
+        return [
+          `A quien corresponda del equipo de privacidad de ${COMPANY_NAME}:`,
+          '',
+          'Por medio del presente solicito la ELIMINACIÓN PERMANENTE de mi cuenta y de los datos personales asociados a ésta.',
+          '',
+          'Datos del titular:',
+          `• Nombre completo: ${data.fullName}`,
+          `• Correo de la cuenta: ${data.accountEmail}`,
+          data.phone ? `• Teléfono: ${data.phone}` : null,
+          data.userId ? `• ID de usuario: ${data.userId}` : null,
+          '',
+          data.reason ? `Motivo (opcional): ${data.reason}` : null,
+          '',
+          'Declaraciones:',
+          '☑ Confirmo que deseo la eliminación definitiva de mi cuenta y comprendo que es irreversible.',
+          '☑ Declaro que soy el titular de la cuenta o estoy autorizado para realizar esta solicitud.',
+          '',
+          `Fecha de la solicitud: ${today}`,
+          '',
+          'Agradezco confirmar la recepción y el folio de atención.',
+          '',
+          'Atentamente,',
+          `${data.fullName}`
+        ].filter(Boolean).join('\n');
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        success.style.display = 'none';
+        error.style.display = 'none';
+
+        const fullName = document.getElementById('fullName').value.trim();
+        const accountEmail = document.getElementById('accountEmail').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const userId = document.getElementById('userId').value.trim();
+        const reason = document.getElementById('reason').value.trim();
+        const confirmErasure = document.getElementById('confirmErasure').checked;
+        const confirmOwner = document.getElementById('confirmOwner').checked;
+
+        if(!fullName || !accountEmail || !confirmErasure || !confirmOwner){
+          error.style.display = 'block';
+          return;
+        }
+
+        const subject = `Solicitud de eliminación de cuenta — ${COMPANY_NAME}`;
+        const body = buildBody({ fullName, accountEmail, phone, userId, reason });
+
+        const mailto = `mailto:${encode(PRIVACY_EMAIL)}?subject=${encode(subject)}&body=${encode(body)}`;
+        // Intenta abrir el cliente de correo del usuario
+        window.location.href = mailto;
+        success.style.display = 'block';
+      });
+
+      downloadBtn.addEventListener('click', function(){
+        success.style.display = 'none';
+        error.style.display = 'none';
+
+        const fullName = document.getElementById('fullName').value.trim() || 'N/D';
+        const accountEmail = document.getElementById('accountEmail').value.trim() || 'N/D';
+        const phone = document.getElementById('phone').value.trim();
+        const userId = document.getElementById('userId').value.trim();
+        const reason = document.getElementById('reason').value.trim();
+
+        const content = buildBody({ fullName, accountEmail, phone, userId, reason });
+        const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        const stamp = new Date().toISOString().split('T')[0];
+        a.download = `solicitud_eliminacion_cuenta_${stamp}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      });
+    })();
+  </script>
+</body>
+</html>
+
