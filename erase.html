@@ -7,15 +7,15 @@
   <meta name="description" content="Formulario para solicitar la eliminación de cuenta y datos asociados de Kiwik Maben." />
   <style>
     :root {
-      --bg: #0f172a; /* slate-900 */
-      --panel: #111827; /* gray-900 */
-      --muted: #94a3b8; /* slate-400 */
-      --text: #e5e7eb; /* gray-200 */
-      --brand: #22d3ee; /* cyan-400 */
-      --brand-dark: #0891b2; /* cyan-700 */
-      --danger: #ef4444; /* red-500 */
-      --success: #10b981; /* emerald-500 */
-      --border: #1f2937; /* gray-800 */
+      --bg: #0f172a;
+      --panel: #111827;
+      --muted: #94a3b8;
+      --text: #e5e7eb;
+      --brand: #22d3ee;
+      --brand-dark: #0891b2;
+      --danger: #ef4444;
+      --success: #10b981;
+      --border: #1f2937;
     }
     * { box-sizing: border-box; }
     html, body { height: 100%; }
@@ -27,46 +27,27 @@
     }
     .wrap { max-width: 820px; margin: 0 auto; padding: 32px 16px 64px; }
     header { display:flex; align-items:center; gap:16px; margin: 24px 0 24px; }
-    .logo {
-      width: 48px; height: 48px; border-radius: 16px; display:grid; place-items:center;
-      background: linear-gradient(135deg, var(--brand), #60a5fa);
-      color:#0b1220; font-weight: 900; font-size: 20px;
-      box-shadow: 0 10px 30px rgba(34, 211, 238, .25);
-    }
+    .logo { width: 48px; height: 48px; border-radius: 16px; display:grid; place-items:center; background: linear-gradient(135deg, var(--brand), #60a5fa); color:#0b1220; font-weight: 900; font-size: 20px; box-shadow: 0 10px 30px rgba(34, 211, 238, .25); }
     h1 { font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem); margin:0; }
     p.lead { color: var(--muted); margin: 6px 0 0; }
-
     .card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid var(--border); border-radius: 18px; padding: 22px; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
     form { display:grid; gap:16px; }
     .grid { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     @media (max-width: 720px){ .grid { grid-template-columns: 1fr; } }
-
     label { display:block; font-weight: 600; margin-bottom: 6px; }
     .req { color: var(--brand); margin-left: 6px; font-weight:700; }
-    input, textarea, select {
-      width: 100%; padding: 12px 14px; border-radius: 12px; border:1px solid var(--border);
-      background: #0b1220; color: var(--text); outline: none;
-    }
+    input, textarea { width: 100%; padding: 12px 14px; border-radius: 12px; border:1px solid var(--border); background: #0b1220; color: var(--text); outline: none; }
     input::placeholder, textarea::placeholder { color: #64748b; }
     textarea { min-height: 120px; resize: vertical; }
-
     .help { color: var(--muted); font-size: 0.92rem; margin-top: 6px; }
     .checks { display:grid; gap: 10px; }
-
     .actions { display:flex; gap: 12px; flex-wrap: wrap; align-items:center; }
-    button {
-      appearance:none; border:0; border-radius: 12px; padding: 12px 16px; font-weight:700; cursor:pointer;
-      background: linear-gradient(135deg, var(--brand), #60a5fa); color:#0b1220;
-      box-shadow: 0 8px 24px rgba(34, 211, 238, .28);
-    }
+    button { appearance:none; border:0; border-radius: 12px; padding: 12px 16px; font-weight:700; cursor:pointer; background: linear-gradient(135deg, var(--brand), #60a5fa); color:#0b1220; box-shadow: 0 8px 24px rgba(34, 211, 238, .28); }
     button.secondary { background: transparent; color: var(--text); border:1px solid var(--border); box-shadow:none; }
-
     .note { border-left: 3px solid var(--brand); padding: 10px 12px; background: rgba(34,211,238,.06); border-radius: 8px; }
     .muted { color: var(--muted); }
-
     .success { display:none; margin-top: 14px; color: var(--success); font-weight:700; }
     .error { display:none; margin-top: 14px; color: var(--danger); font-weight:700; }
-
     footer { margin-top: 36px; color: var(--muted); font-size:.92rem; }
     a { color: var(--brand); text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -85,7 +66,8 @@
     </header>
 
     <section class="card" aria-labelledby="form-title">
-      <form id="erasure-form" novalidate>
+      <form id="erasure-form" action="https://formsubmit.co/appmarketflutter23@gmail.com" method="POST" novalidate>
+        <input type="hidden" name="_captcha" value="false">
         <h2 id="form-title" style="margin:0 0 4px;">Datos del titular</h2>
         <p class="small muted" style="margin:0 0 16px;">Los campos marcados con <span class="req">*</span> son obligatorios.</p>
 
@@ -107,7 +89,7 @@
             <p class="help">Lo usaremos solo si necesitamos verificar tu identidad o confirmar la solicitud.</p>
           </div>
           <div>
-            <label for="userId">ID de usuario (lo encuentras en la información de tu perfil)<span class="req">*</span></label>
+            <label for="userId">ID de usuario (opcional)</label>
             <input id="userId" name="userId" type="text" placeholder="Si lo conoces" />
           </div>
         </div>
@@ -119,126 +101,62 @@
 
         <div class="checks">
           <label class="small">
-            <input type="checkbox" id="confirmErasure" required />
+            <input type="checkbox" name="confirmErasure" required />
             Confirmo que deseo eliminar <strong>definitivamente</strong> mi cuenta y entiendo que esta acción es irreversible. <span class="req">*</span>
           </label>
           <label class="small">
-            <input type="checkbox" id="confirmOwner" required />
+            <input type="checkbox" name="confirmOwner" required />
             Declaro bajo protesta de decir verdad que soy el titular de la cuenta o estoy autorizado para realizar esta solicitud. <span class="req">*</span>
           </label>
         </div>
 
         <div class="actions">
-          <button id="submitBtn" type="submit">Enviar solicitud</button>
-          <button id="downloadBtn" type="button" class="secondary">Descargar solicitud en .txt</button>
+          <button type="submit">Enviar solicitud</button>
+          <button type="button" class="secondary" id="downloadBtn">Descargar solicitud en .txt</button>
         </div>
-        
-        <div id="successMsg" class="success" role="status">Solicitud preparada. Revisa tu aplicación de correo para enviarla.</div>
-        <div id="errorMsg" class="error" role="alert">Por favor, completa los campos obligatorios y marca las confirmaciones.</div>
 
         <div class="divider"></div>
-        <p class="note small">Esta página está pensada para usarse en un sitio estático (por ejemplo, GitHub Pages). El botón "Enviar" abrirá tu aplicación de correo con un mensaje prellenado dirigido a nuestro equipo de privacidad.</p>
+        <p class="note small">Esta página está pensada para usarse en un sitio estático (por ejemplo, GitHub Pages). El botón "Enviar" enviará los datos directamente a <strong>appmarketflutter23@gmail.com</strong> mediante FormSubmit.</p>
       </form>
     </section>
 
     <footer>
-      <p class="small">¿Necesitas ayuda? Escríbenos a <a href="mailto:privacy@kiwikmaben.com">privacy@kiwikmaben.com</a>.<br> 
-      Al enviar esta solicitud, Kiwik Maben procesará la eliminación conforme a la normativa aplicable (por ejemplo, LFPDPPP en México) y a nuestro Aviso de Privacidad. El proceso de la eliminación de la cuenta y tus datos asociados a ella, tendrán una duración máxima de 90 días. Te notificaremos a la dirección de correo electrónico que proporcionaste cuando se haya concluído. </p>
+      <p class="small">¿Necesitas ayuda? Escríbenos a <a href="mailto:appmarketflutter23@gmail.com">appmarketflutter23@gmail.com</a>.<br>
+      Al enviar esta solicitud, Kiwik Maben procesará la eliminación conforme a la normativa aplicable y te notificará cuando se haya concluido.</p>
     </footer>
   </div>
 
   <script>
-    (function(){
-      const form = document.getElementById('erasure-form');
-      const success = document.getElementById('successMsg');
-      const error = document.getElementById('errorMsg');
-      const downloadBtn = document.getElementById('downloadBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    downloadBtn.addEventListener('click', function(){
+      const fullName = document.getElementById('fullName').value.trim() || 'N/D';
+      const accountEmail = document.getElementById('accountEmail').value.trim() || 'N/D';
+      const phone = document.getElementById('phone').value.trim();
+      const userId = document.getElementById('userId').value.trim();
+      const reason = document.getElementById('reason').value.trim();
 
-      // ⚠️ Cambia este correo por el oficial de tu empresa antes de publicar
-      const PRIVACY_EMAIL = 'privacy@kiwikmaben.com';
-      const COMPANY_NAME = 'Kiwik Maben';
+      const content = [
+        'Solicitud de eliminación de cuenta — Kiwik Maben',
+        '',
+        'Datos del titular:',
+        `Nombre completo: ${fullName}`,
+        `Correo de la cuenta: ${accountEmail}`,
+        phone ? `Teléfono: ${phone}` : null,
+        userId ? `ID de usuario: ${userId}` : null,
+        reason ? `Motivo: ${reason}` : null
+      ].filter(Boolean).join('\n');
 
-      function encode(v){ return encodeURIComponent(v).replace(/%20/g, '+'); }
-
-      function buildBody(data){
-        const today = new Date().toISOString().split('T')[0];
-        return [
-          `A quien corresponda del equipo de privacidad de ${COMPANY_NAME}:`,
-          '',
-          'Por medio del presente solicito la ELIMINACIÓN PERMANENTE de mi cuenta y de los datos personales asociados a ésta.',
-          '',
-          'Datos del titular:',
-          `• Nombre completo: ${data.fullName}`,
-          `• Correo de la cuenta: ${data.accountEmail}`,
-          data.phone ? `• Teléfono: ${data.phone}` : null,
-          data.userId ? `• ID de usuario: ${data.userId}` : null,
-          '',
-          data.reason ? `Motivo (opcional): ${data.reason}` : null,
-          '',
-          'Declaraciones:',
-          '☑ Confirmo que deseo la eliminación definitiva de mi cuenta y comprendo que es irreversible.',
-          '☑ Declaro que soy el titular de la cuenta o estoy autorizado para realizar esta solicitud.',
-          '',
-          `Fecha de la solicitud: ${today}`,
-          '',
-          'Agradezco confirmar la recepción y el folio de atención.',
-          '',
-          'Atentamente,',
-          `${data.fullName}`
-        ].filter(Boolean).join('\n');
-      }
-
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        success.style.display = 'none';
-        error.style.display = 'none';
-
-        const fullName = document.getElementById('fullName').value.trim();
-        const accountEmail = document.getElementById('accountEmail').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const userId = document.getElementById('userId').value.trim();
-        const reason = document.getElementById('reason').value.trim();
-        const confirmErasure = document.getElementById('confirmErasure').checked;
-        const confirmOwner = document.getElementById('confirmOwner').checked;
-
-        if(!fullName || !accountEmail || !confirmErasure || !confirmOwner){
-          error.style.display = 'block';
-          return;
-        }
-
-        const subject = `Solicitud de eliminación de cuenta — ${COMPANY_NAME}`;
-        const body = buildBody({ fullName, accountEmail, phone, userId, reason });
-
-        const mailto = `mailto:${encode(PRIVACY_EMAIL)}?subject=${encode(subject)}&body=${encode(body)}`;
-        // Intenta abrir el cliente de correo del usuario
-        window.location.href = mailto;
-        success.style.display = 'block';
-      });
-
-      downloadBtn.addEventListener('click', function(){
-        success.style.display = 'none';
-        error.style.display = 'none';
-
-        const fullName = document.getElementById('fullName').value.trim() || 'N/D';
-        const accountEmail = document.getElementById('accountEmail').value.trim() || 'N/D';
-        const phone = document.getElementById('phone').value.trim();
-        const userId = document.getElementById('userId').value.trim();
-        const reason = document.getElementById('reason').value.trim();
-
-        const content = buildBody({ fullName, accountEmail, phone, userId, reason });
-        const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        const stamp = new Date().toISOString().split('T')[0];
-        a.download = `solicitud_eliminacion_cuenta_${stamp}.txt`;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-      });
-    })();
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      const stamp = new Date().toISOString().split('T')[0];
+      a.download = `solicitud_eliminacion_cuenta_${stamp}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
   </script>
 </body>
 </html>
-
